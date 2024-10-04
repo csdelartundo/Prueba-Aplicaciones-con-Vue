@@ -2,53 +2,28 @@
     <h2 class="titulo-principal">{{ tituloPorDefecto }}</h2>
     <p class="counter">{{ contador }} </p>
     <div>
-        <button class="btn primary" v-on:click="incrementar">+1</button>
-        <button class="btn warning" v-on:click="disminuir">-1</button>
-        <button class="btn boton-enviar" v-on:click="enviar">Enviar</button>
+        <button class="btn primary" @click="incrementar">+1</button>
+        <button class="btn warning" @click="disminuir">-1</button>
+        <button class="btn boton-enviar" @click="enviar">Enviar</button>
     </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
+
 export default {
     name: 'Contador',
-    props: {
-        titulo: String,
-        inicio: {
-            default: 1
-        }
-    },
-
-    data() {
-        return {
-            contador: this.inicio
+    computed: {
+        ...mapGetters(['contador']),
+        tituloPorDefecto() {
+            return this.titulo || 'Contador';
         }
     },
     methods: {
-        aumentar() {
-            return this.contador + this.contador
-        },
-
-        incrementar() {
-            this.contador++
-        },
-
-        disminuir() {
-            this.contador--
-        }
-    },
-    computed: {
-        // Las propieades computadas se guardan en cache
-        aumentarContador() {
-            return this.contador * this.contador
-        },
-
-        tituloPorDefecto() {
-            return this.titulo || 'Contador'
-        }
+        ...mapActions(['incrementar', 'disminuir']),
     }
 }
 </script>
-
 <style>
 .btn {
     border-radius: 1rem;
