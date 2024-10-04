@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import { store } from '@/store';
+import { store } from '@/store/store';
 import PrimerEjercicio from '@/components/PrimerEjercicio.vue';
 
 describe('PrimerEjercicio.vue', () => {

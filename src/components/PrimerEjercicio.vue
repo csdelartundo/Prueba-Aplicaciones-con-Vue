@@ -1,10 +1,9 @@
 <template>
-    <h2 class="titulo-principal">{{ tituloPorDefecto }}</h2>
+    <h2 class="title">Contador</h2>
     <p class="counter">{{ contador }} </p>
     <div>
         <button class="btn primary" @click="incrementar">+1</button>
         <button class="btn warning" @click="disminuir">-1</button>
-        <button class="btn boton-enviar" @click="enviar">Enviar</button>
     </div>
 </template>
 
@@ -12,12 +11,9 @@
 import { mapGetters, mapActions } from 'vuex';
 
 export default {
-    name: 'Contador',
+    name: 'PrimerEjercicio',
     computed: {
         ...mapGetters(['contador']),
-        tituloPorDefecto() {
-            return this.titulo || 'Contador';
-        }
     },
     methods: {
         ...mapActions(['incrementar', 'disminuir']),
