@@ -1,7 +1,7 @@
 <template>
     <div>
-        <input type="text" v-model="inputChild" placeholder="Escribe tu mensaje">
-        <button @click="sendText">Enviar</button>
+    <input type="text" v-model="inputChild" placeholder="Escribe tu mensaje" @keyup.enter="sendText" />
+    <button @click="sendText">Enviar</button>
     </div>
 </template>
 
