@@ -32,7 +32,7 @@ describe('Vistas HomeView y AboutView', () => {
 
     test('Probando existencia de vista AboutView', async () => {
         // Prueba para verificar la existencia de la vista 'AboutView'
-
+    
         const router = createRouter({
             history: createWebHistory(), // Crea un historial web usando Vue Router
             routes: [
@@ -43,14 +43,21 @@ describe('Vistas HomeView y AboutView', () => {
                 }
             ]
         })
-        router.push('/') // Navega a la ruta '/'
+        
+        // Navega a la ruta '/about'
+        router.push('/about') 
         await router.isReady() // Espera que el router esté listo
-        const wrapper = mount(AboutView, {
+    
+        // Monta un componente de vista que contenga el router
+        const wrapper = mount({
+            template: '<router-view></router-view>', // Usar un router-view para renderizar la vista
+        }, {
             global: {
                 plugins: [router] // Agrega el router como plugin global
             }
         })
+    
         // Verifica que el componente AboutView exista en el DOM
         expect(wrapper.findComponent(AboutView).exists()).toBe(true)
-    })
+    })    
 })

@@ -1,6 +1,13 @@
 <template>
-  <div>
-    <h1>About</h1>
-  </div>
+  <AboutComp />
 </template>
 
+<script>
+import AboutComp from '@/components/AboutComp.vue';
+
+export default {
+  components: {
+    AboutComp
+  }
+}
+</script>

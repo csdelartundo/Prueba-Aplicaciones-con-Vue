@@ -11,7 +11,9 @@ export const store = createStore({
       state.contador++;
     },
     disminuir(state) {
-      state.contador--;
+      if (state.contador > 0) {
+        state.contador--;
+      }
     },
   },
   actions: {
